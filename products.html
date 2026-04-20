@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aloe Miracle</title>
+<title>منتجات Aloe Miracle</title>
 
 <style>
 body{
@@ -13,36 +13,59 @@ margin:0;
 }
 
 .container{
-max-width:500px;
-margin:60px auto;
-background:white;
+max-width:1000px;
+margin:auto;
 padding:20px;
-border-radius:15px;
+}
+
+h1{
 text-align:center;
+color:#0F5132;
+margin-bottom:30px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+padding-bottom:20px;
 }
 
-h1{color:#0F5132}
-
-input, select{
+.card img{
 width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
+height:200px;
+object-fit:cover;
 }
 
-button{
-width:100%;
-padding:15px;
+.card h3{
+margin:10px 0;
+color:#0F5132;
+}
+
+.price{
+color:#D4AF37;
+font-weight:bold;
+font-size:1.3rem;
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
 background:#25D366;
 color:white;
-border:none;
-border-radius:10px;
-font-size:1.1rem;
+padding:10px 20px;
+border-radius:50px;
+text-decoration:none;
 font-weight:bold;
 }
-
 </style>
 </head>
 
@@ -50,44 +73,46 @@ font-weight:bold;
 
 <div class="container">
 
-<h1>🛒 طلب Aloe Miracle</h1>
+<h1>منتجات Aloe Miracle</h1>
 
-<form id="orderForm">
+<div class="products">
 
-<input type="text" id="name" placeholder="الاسم الكامل" required>
-<input type="tel" id="phone" placeholder="رقم الهاتف" required>
-<input type="text" id="city" placeholder="المدينة" required>
+<!-- PRODUCT 1 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?q=80&w=800">
+<h3>سيروم Aloe</h3>
+<div class="price">149 DH</div>
+<a href="#" class="btn" onclick="order('سيروم Aloe - 149 DH')">اطلب الآن</a>
+</div>
 
-<select id="product">
-<option>سيروم Aloe - 149 DH</option>
-<option>باك 2 - 249 DH</option>
-<option>باك العلاج الكامل - 399 DH</option>
-</select>
+<!-- PRODUCT 2 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1620912189866-3df7a0c65e66?q=80&w=800">
+<h3>باك 2</h3>
+<div class="price">249 DH</div>
+<a href="#" class="btn" onclick="order('باك 2 - 249 DH')">اطلب الآن</a>
+</div>
 
-<button type="submit">تأكيد الطلب عبر واتساب</button>
+<!-- PRODUCT 3 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800">
+<h3>باك العلاج الكامل</h3>
+<div class="price">399 DH</div>
+<a href="#" class="btn" onclick="order('باك العلاج الكامل - 399 DH')">اطلب الآن</a>
+</div>
 
-</form>
+</div>
 
 </div>
 
 <script>
-document.getElementById("orderForm").addEventListener("submit", function(e){
-e.preventDefault();
-
-let name = document.getElementById("name").value;
-let phone = document.getElementById("phone").value;
-let city = document.getElementById("city").value;
-let product = document.getElementById("product").value;
-
+function order(product){
 let msg = "🛒 طلب جديد Aloe Miracle%0A%0A"
-+ "📦 المنتج: " + product + "%0A"
-+ "👤 الاسم: " + name + "%0A"
-+ "📞 الهاتف: " + phone + "%0A"
-+ "📍 المدينة: " + city + "%0A%0A"
++ "📦 المنتج: " + product + "%0A%0A"
 + "🚚 الدفع عند الاستلام";
 
 window.open("https://wa.me/212621536578?text=" + msg, "_blank");
-});
+}
 </script>
 
 </body>
