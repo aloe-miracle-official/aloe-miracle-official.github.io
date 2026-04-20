@@ -1,0 +1,30 @@
+/* حركة اللوغو منين تحمل الصفحة */
+.site-header img, .header img, img[alt*="logo"], img[alt*="Logo"] {
+    animation: fadeInDown 1s ease-out;
+    transition: 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from { 
+        opacity: 0; 
+        transform: translateY(-30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* حركة ملي تحط صبعك عليه فالتيليفون */
+.site-header img:active, .header img:active {
+    transform: scale(1.05);
+}
+
+/* حركة للأزرار */
+button, .btn, a[class*="btn"], input[type="submit"] {
+    transition: 0.3s ease;
+}
+
+button:active, .btn:active {
+    transform: scale(0.95);
+}
