@@ -1,190 +1,130 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aloe Miracle Official | عطور وزيوت طبيعية بالألوفيرا</title>
-    <meta name="description" content="Aloe Miracle Official - منتجات فاخرة بالألوفيرا للعناية والجمال. روائح طبيعية تدوم طويلا. توصيل لجميع مدن المغرب">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;700&display=swap');
-        :root {
-            --gold: #C9A961;
-            --dark: #1A1A1A;
-            --white: #FFFFFF;
-            --cream: #F8F5F0;
-            --whatsapp: #25D366;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', 'Cairo', sans-serif; }
-        body { background: var(--white); color: var(--dark); }
-        .announcement { background: var(--dark); color: var(--gold); text-align: center; padding: 8px; font-size: 13px; letter-spacing: 1px; }
-        .header { background: var(--white); padding: 20px; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
-        .header h1 { font-size: 26px; font-weight: 300; letter-spacing: 3px; color: var(--dark); }
-        .header span { font-size: 11px; color: var(--gold); letter-spacing: 2px; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg'); background-size: cover; background-position: center; height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
-        .hero-content h2 { font-size: 36px; font-weight: 300; margin-bottom: 15px; letter-spacing: 2px; }
-        .hero-content p { font-size: 16px; margin-bottom: 25px; opacity: 0.9; }
-        .hero-btn { background: var(--gold); color: var(--dark); padding: 14px 40px; border: none; font-size: 14px; letter-spacing: 2px; cursor: pointer; font-weight: 600; }
-        .section-title { text-align: center; padding: 50px 20px 30px; font-size: 28px; font-weight: 300; letter-spacing: 3px; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 2px; background: var(--gold); margin: 15px auto 0; }
-        .products { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0 15px 40px; max-width: 1200px; margin: 0 auto; }
-        .product { background: var(--white); cursor: pointer; position: relative; overflow: hidden; }
-        .product img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.6s; }
-        .product:hover img { transform: scale(1.05); }
-        .product-info { padding: 20px 15px; text-align: center; background: var(--cream); }
-        .product h3 { font-size: 16px; margin-bottom: 8px; font-weight: 400; letter-spacing: 1px; }
-        .product-desc { font-size: 12px; color: #777; margin-bottom: 12px; height: 32px; }
-        .price { color: var(--dark); font-weight: 600; font-size: 18px; margin-bottom: 15px; }
-        .btn { background: var(--dark); color: var(--white); border: 1px solid var(--dark); padding: 12px; width: 100%; font-size: 13px; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; }
-        .btn:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
-        .cart { position: fixed; bottom: 25px; left: 25px; background: var(--dark); color: var(--white); padding: 16px 22px; border-radius: 0; box-shadow: 0 4px 20px rgba(0,0,0,0.3); font-size: 14px; cursor: pointer; z-index: 15; letter-spacing: 1px; }
-        .cart-count { background: var(--gold); color: var(--dark); border-radius: 0; padding: 3px 8px; font-size: 11px; position: absolute; top: -8px; right: -8px; font-weight: 700; }
-        .cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 20; }
-        .cart-content { background: var(--white); position: fixed; left: 0; bottom: 0; width: 100%; padding: 30px 20px; max-height: 85%; overflow-y: auto; animation: slideUp 0.4s; }
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .cart-content h2 { margin-bottom: 25px; font-size: 22px; font-weight: 300; letter-spacing: 2px; text-align: center; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; border-bottom: 1px solid #eee; padding-bottom: 18px; }
-        .cart-item-name { font-size: 15px; font-weight: 400; }
-        .remove-btn { background: none; border: none; font-size: 22px; cursor: pointer; color: #999; }
-        #total { margin-top: 25px; font-size: 20px; font-weight: 600; text-align: left; padding-top: 20px; border-top: 2px solid var(--dark); }
-        .checkout { background: var(--whatsapp); color: var(--white); border: none; padding: 16px; width: 100%; font-size: 15px; margin-top: 20px; cursor: pointer; font-weight: 600; letter-spacing: 1px; }
-        .close { background: transparent; color: var(--dark); border: 1px solid var(--dark); padding: 14px; width: 100%; margin-top: 10px; cursor: pointer; font-weight: 400; letter-spacing: 1px; }
-        .about { background: var(--cream); padding: 60px 20px; text-align: center; }
-        .about h3 { font-size: 24px; font-weight: 300; margin-bottom: 20px; letter-spacing: 2px; }
-        .about p { max-width: 600px; margin: 0 auto; line-height: 1.8; color: #555; }
-        .footer { background: var(--dark); color: var(--white); text-align: center; padding: 40px 20px; font-size: 13px; }
-        .footer a { color: var(--gold); text-decoration: none; font-weight: 600; }
-        @media (min-width: 768px) { .products { grid-template-columns: 1fr 1fr 1fr; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aloe Miracle | السر ديال الشعر الصحي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Tajawal', sans-serif}
+    body {background:#fff; color:#1a1a1a; line-height:1.8}
+    .container {max-width:1200px; margin:auto; padding:0 20px}
+    
+    nav {background:#0F5132; padding:10px 0; position:sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+    nav .container {display:flex; justify-content:space-between; align-items:center}
+    .logo {display:flex; align-items:center; gap:15px}
+    .logo img {height:50px; width:auto}
+    .logo span {color:#D4AF37; font-size:1.8rem; font-weight:900}
+    .nav-links a {color:white; text-decoration:none; margin:0 15px; font-weight:700; transition:0.3s}
+    .nav-links a:hover {color:#D4AF37}
+    .social-top a {color:white; margin:0 8px; font-size:1.3rem; transition:0.3s}
+    .social-top a:hover {color:#D4AF37; transform:translateY(-3px)}
+    
+    .hero {background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=2070') center/cover; color:white; text-align:center; padding:150px 20px}
+    .hero h1 {font-size:3.5rem; font-weight:900; margin-bottom:20px; text-shadow:2px 2px 8px black}
+    .hero p {font-size:1.4rem; margin-bottom:40px; max-width:700px; margin-inline:auto}
+    .btn {background:#D4AF37; color:#1a1a1a; padding:18px 45px; border-radius:50px; text-decoration:none; font-weight:900; font-size:1.3rem; display:inline-block; margin:5px; transition:0.3s; box-shadow:0 5px 20px rgba(212,175,55,0.4)}
+    .btn-outline {background:transparent; color:white; border:2px solid #D4AF37; box-shadow:none}
+    .btn:hover {transform:translateY(-5px); box-shadow:0 8px 25px rgba(212,175,55,0.6)}
+    
+    .section {padding:80px 0}
+    .section-title {text-align:center; font-size:2.5rem; font-weight:900; margin-bottom:50px; color:#0F5132}
+    .grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px}
+    .card {background:#F8F9FA; padding:35px; border-radius:15px; text-align:center; border-bottom:5px solid #D4AF37; transition:0.3s}
+    .card:hover {transform:translateY(-10px)}
+    .card i {font-size:3rem; color:#0F5132; margin-bottom:20px}
+    .card h3 {font-size:1.5rem; margin:15px 0; color:#0F5132}
+    
+    footer {background:#1a1a1a; color:#aaa; padding:50px 20px; margin-top:60px}
+    .footer-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:40px; text-align:right}
+    .footer-grid h3 {color:#D4AF37; margin-bottom:20px}
+    .footer-grid a {color:#aaa; text-decoration:none; display:block; margin-bottom:10px}
+    .footer-grid a:hover {color:#D4AF37}
+    .social-bottom a {color:white; font-size:2rem; margin:0 10px; display:inline-block}
+    .social-bottom a:hover {color:#D4AF37}
+    .copyright {text-align:center; margin-top:40px; padding-top:20px; border-top:1px solid #333}
+  </style>
 </head>
 <body>
 
-    <div class="announcement">التوصيل مجاني للطلبات فوق 300 درهم</div>
-    
-    <div class="header">
-        <h1>ALOE MIRACLE</h1>
-        <span>OFFICIAL</span>
+  <nav>
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="Aloe Miracle Logo">
+        <span>Aloe Miracle</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">منتجاتنا</a>
+        <a href="https://wa.me/212621536578">تواصل معنا</a>
+      </div>
+      <div class="social-top">
+        <a href="https://instagram.com/aloe_miracle_official" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/aloe miracle official" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
     </div>
+  </nav>
 
-    <div class="hero">
-        <div class="hero-content">
-            <h2>جمال طبيعي خالد</h2>
-            <p>اكتشف قوة الألوفيرا في مجموعة فاخرة للعناية</p>
-            <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">تسوق الآن</button>
+  <section class="hero">
+    <div class="container">
+      <h1>رجعي لشعرك الحياة والكثافة</h1>
+      <p>مع Aloe Miracle، السيروم الطبيعي 100% المصنوع من الألوفيرا وزيت الأركان المغربي الأصيل. ودعي التساقط والفراغات.</p>
+      <a href="products.html" class="btn">اكتشفي المنتجات</a>
+      <a href="https://wa.me/212621536578?text=سلام، بغيت نكوموندي Aloe Miracle" class="btn btn-outline">اطلبي عبر واتساب</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">علاش تختاري Aloe Miracle؟</h2>
+      <div class="grid">
+        <div class="card">
+          <i class="fas fa-leaf"></i>
+          <h3>100% طبيعي وآمن</h3>
+          <p>مكونات من قلب الطبيعة: الألوفيرا، زيت الأركان، وزيت الخروع. بدون مواد كيماوية ضارة.</p>
         </div>
-    </div>
-
-    <h2 class="section-title">مجموعتنا المختارة</h2>
-    <div class="products" id="products"></div>
-
-    <div class="about">
-        <h3>لماذا Aloe Miracle؟</h3>
-        <p>نحن نؤمن بقوة الطبيعة. كل منتجاتنا مصنوعة من الألوفيرا النقية 100% المزروعة في مزارعنا الخاصة. نوفر لك الجودة الفاخرة بثمن مناسب، مع توصيل سريع لجميع أنحاء المملكة والدفع عند الاستلام.</p>
-    </div>
-
-    <div class="cart" onclick="openCart()">
-        السلة <span class="cart-count" id="cartCount">0</span>
-    </div>
-
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <h2>سلة التسوق</h2>
-            <div id="cartItems"></div>
-            <h3 id="total">المجموع: 0 درهم</h3>
-            <button class="checkout" onclick="checkout()">إتمام الطلب عبر واتساب</button>
-            <button class="close" onclick="closeCart()">متابعة التسوق</button>
+        <div class="card">
+          <i class="fas fa-bolt"></i>
+          <h3>نتائج سريعة ومضمونة</h3>
+          <p>غادي تلاحظي الفرق فالقوة واللمعان من الأسبوع الأول. نتائج الطول والكثافة فـ 30 يوم.</p>
         </div>
+        <div class="card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>ضمان استرجاع الأموال</h3>
+          <p>ما عجبكش المنتج؟ رجعيه خلال 14 يوم وفلوسك ترجع لك. واثقين فالمنتج ديالنا 100%.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="footer">
-        <p>Aloe Miracle Official © 2026</p>
-        <p style="margin-top:15px;">للطلب: <a href="https://wa.me/212621536578">06 21 53 65 78</a></p>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Aloe Miracle</h3>
+          <p>العلامة المغربية الأولى للعناية الطبيعية بالشعر. الجودة والثقة شعارنا.</p>
+        </div>
+        <div>
+          <h3>روابط سريعة</h3>
+          <a href="index.html">الصفحة الرئيسية</a>
+          <a href="products.html">جميع المنتجات</a>
+          <a href="https://wa.me/212621536578">خدمة الزبناء</a>
+        </div>
+        <div>
+          <h3>تبعينا على</h3>
+          <div class="social-bottom">
+            <a href="https://instagram.com/aloe_miracle_official" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/aloe miracle official" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/212621536578" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2026 Aloe Miracle. جميع الحقوق محفوظة.</p>
+      </div>
     </div>
-
-<script>
-    // بدل المنتجات هنا بمنتجات الألوفيرا والعطور ديالك
-    const products = [
-        { id: 1, name: "زيت الألوفيرا الملكي", desc: "عطر زيتي مركز يدوم 24 ساعة", price: 249, img: "https://images.pexels.com/photos/6621498/pexels-photo-6621498.jpeg" },
-        { id: 2, name: "مسك الألوفيرا الأبيض", desc: "رائحة ناعمة ومنعشة للجنسين", price: 199, img: "https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg" },
-        { id: 3, name: "سيروم الألوفيرا للشعر", desc: "تغذية ولمعان فوري", price: 159, img: "https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg" },
-        { id: 4, name: "كريم الألوفيرا الذهبي", desc: "ترطيب عميق بلمسة فاخرة", price: 179, img: "https://images.pexels.com/photos/3737605/pexels-photo-3737605.jpeg" },
-        { id: 5, name: "معطر الجسم ألوها", desc: "انتعاش يدوم طوال اليوم", price: 129, img: "https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg" },
-        { id: 6, name: "باقة الهدايا الفاخرة", desc: "3 منتجات في علبة هدايا", price: 399, img: "https://images.pexels.com/photos/6621474/pexels-photo-6621474.jpeg" }
-    ];
-
-    const WHATSAPP_NUMBER = "212621536578";
-
-    let cart = [];
-    const productsDiv = document.getElementById('products');
-    products.forEach(p => {
-        productsDiv.innerHTML += `
-            <div class="product">
-                <img src="${p.img}" alt="${p.name}">
-                <div class="product-info">
-                    <h3>${p.name}</h3>
-                    <div class="product-desc">${p.desc}</div>
-                    <div class="price">${p.price} درهم</div>
-                    <button class="btn" onclick="addToCart(${p.id})">أضف إلى السلة</button>
-                </div>
-            </div>
-        `;
-    });
-
-    function addToCart(id) {
-        const product = products.find(p => p.id === id);
-        cart.push(product);
-        updateCart();
-    }
-
-    function updateCart() {
-        document.getElementById('cartCount').innerText = cart.length;
-        const cartItemsDiv = document.getElementById('cartItems');
-        let total = 0;
-        cartItemsDiv.innerHTML = '';
-        if (cart.length === 0) {
-            cartItemsDiv.innerHTML = '<p style="text-align:center;color:#777;padding:30px 0;">سلتك فارغة حاليا</p>';
-        } else {
-            cart.forEach((item, index) => {
-                total += item.price;
-                cartItemsDiv.innerHTML += `
-                    <div class="cart-item">
-                        <span class="cart-item-name">${item.name} - ${item.price} درهم</span>
-                        <button class="remove-btn" onclick="removeItem(${index})">×</button>
-                    </div>
-                `;
-            });
-        }
-        document.getElementById('total').innerText = `المجموع: ${total} درهم`;
-    }
-
-    function removeItem(index) {
-        cart.splice(index, 1);
-        updateCart();
-    }
-
-    function openCart() {
-        document.getElementById('cartModal').style.display = 'block';
-        updateCart();
-    }
-
-    function closeCart() {
-        document.getElementById('cartModal').style.display = 'none';
-    }
-
-    function checkout() {
-        if (cart.length === 0) {
-            alert('المرجو إضافة منتجات للسلة أولا');
-            return;
-        }
-        let msg = `*طلب جديد من Aloe Miracle Official*%0A%0A`;
-        let total = 0;
-        cart.forEach(item => {
-            msg += `▪️ ${item.name} - ${item.price} درهم%0A`;
-            total += item.price;
-        });
-        msg += `%0A*المجموع الإجمالي: ${total} درهم*%0A%0Aالمرجو تأكيد الطلب مع معلومات التوصيل.`;
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-    }
-</script>
+  </footer>
 
 </body>
 </html>
